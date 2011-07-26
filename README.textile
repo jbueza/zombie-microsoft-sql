@@ -1,0 +1,10 @@
+h1. Microsoft SQL Headless Tests
+
+Providing a quick way of doing headless tests on Microsoft online properties.
+
+h2. Getting Started
+
+# Clone this repository
+# Add ___Spec.js files to the /spec/ directory
+# Invoke "run.sh"
+
