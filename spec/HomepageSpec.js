@@ -34,4 +34,23 @@ describe('When a user goes to the Microsoft SQL Evergreen Homepage', function() 
     });
     asyncSpecWait();
   });
+  
+  //This should fail because there are 16+ anchors without hrefs!!
+  it('should not have any empty anchors', function() {
+    var browser = new zombie.Browser(config);
+    browser.visit(target, function(err, doc) {
+      expect(browser.css("a[href='']").length).toEqual(0);
+      asyncSpecDone();
+    });
+    asyncSpecWait();
+  });
+  
+  it('should not have any spaces within hrefs', function() {
+    var browser = new zombie.Browser(config);
+    browser.visit(target, function(err, doc) {
+      expect(browser.css("a[href*=' ']").length).toEqual(0);
+      asyncSpecDone();
+    });
+    asyncSpecWait();
+  });
 });
