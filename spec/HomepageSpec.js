@@ -24,7 +24,12 @@ describe('When a user goes to the Microsoft SQL Evergreen Homepage', function() 
     asyncSpecWait();
   });
   it('should not redirect the user', function() {
-    
+    var browser = new zombie.Browser(config);
+    browser.visit(target, function(err, doc) {
+      expect(doc.redirected).toBeFalsy();
+      asyncSpecDone();
+    });
+    asyncSpecWait();
   });
 });
 
